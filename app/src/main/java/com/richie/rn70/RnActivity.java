@@ -1,7 +1,10 @@
 package com.richie.rn70;
 
+import android.os.Bundle;
+import androidx.annotation.Nullable;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
+import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactRootView;
 
 /**
@@ -18,6 +21,11 @@ public class RnActivity extends ReactActivity {
         return "AwesomeProject";
     }
 
+    protected String getJSBundleFile() {
+//        return "assets://index.bundle";
+        return null;
+    }
+
     /**
      * Returns the instance of the {@link ReactActivityDelegate}. There the RootView is created and
      * you can specify the renderer you wish to use - the new renderer (Fabric) or the old renderer
@@ -25,12 +33,34 @@ public class RnActivity extends ReactActivity {
      */
     @Override
     protected ReactActivityDelegate createReactActivityDelegate() {
-        return new MainActivityDelegate(this, getMainComponentName());
+        return new MainActivityDelegate(this, getMainComponentName(), getJSBundleFile());
     }
 
     public static class MainActivityDelegate extends ReactActivityDelegate {
-        public MainActivityDelegate(ReactActivity activity, String mainComponentName) {
+
+        private ReactNativeHost reactNativeHost;
+
+        public MainActivityDelegate(ReactActivity activity, String mainComponentName, String jsBundleFile) {
             super(activity, mainComponentName);
+            if (jsBundleFile != null && jsBundleFile.length() > 0) {
+                this.reactNativeHost = new MainApplicationReactNativeHost(jsBundleFile);
+            }
+        }
+
+        @Override
+        public ReactNativeHost getReactNativeHost() {
+            if (reactNativeHost != null) {
+                return reactNativeHost;
+            }
+            return MainApplicationReactNativeHost.getApplicationReactNativeHost();
+        }
+
+        @Nullable
+        @Override
+        protected Bundle getLaunchOptions() {
+            Bundle bundle = new Bundle();
+            bundle.putFloat("custom", 1.1f);
+            return bundle;
         }
 
         @Override

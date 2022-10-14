@@ -5,13 +5,15 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios --simulator \"iPhone 13 Pro\"",
+    "release:ios": "react-native bundle --platform ios --entry-file index.js --bundle-output index.ios.bundle --dev false && hermes-osx/hermesc -emit-binary -out index.ios.bundle.hbc index.ios.bundle && rm -f index.ios.bundle && mv index.ios.bundle.hbc index.ios.bundle",
+    "release:android": "react-native bundle --platform android --entry-file index.js --bundle-output index.android.bundle --dev false && hermes-osx/hermesc -emit-binary -out index.android.bundle.hbc index.android.bundle && rm -f index.android.bundle && mv index.android.bundle.hbc index.android.bundle",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
     "react": "18.1.0",
-    "react-native": "0.70.2"
+    "react-native": "0.70.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

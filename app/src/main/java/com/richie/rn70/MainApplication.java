@@ -2,7 +2,6 @@ package com.richie.rn70;
 
 import android.app.Application;
 import android.content.Context;
-//import com.facebook.newarchitecture.MainApplicationReactNativeHost;
 import com.facebook.react.*;
 import com.facebook.react.config.ReactFeatureFlags;
 import com.facebook.soloader.SoLoader;
@@ -12,34 +11,29 @@ import java.lang.reflect.InvocationTargetException;
 /**
  * Created by lylaut on 2022/09/22
  */
-public class MainApplication  extends Application implements ReactApplication {
+public class MainApplication extends Application implements ReactApplication {
 
-    private final ReactNativeHost mNewArchitectureNativeHost =
-            new MainApplicationReactNativeHost(this, BuildConfig.DEBUG);
+    private ReactNativeHost mNewArchitectureNativeHost;
 
     @Override
     public ReactNativeHost getReactNativeHost() {
+        if (mNewArchitectureNativeHost == null) {
+            mNewArchitectureNativeHost = new MainApplicationReactNativeHost(null);
+        }
         return mNewArchitectureNativeHost;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
+        MainApplicationReactNativeHost.setApplication(this);
         // If you opted-in for the New Architecture, we enable the TurboModule system
         ReactFeatureFlags.useTurboModules = true;
         SoLoader.init(this, /* native exopackage */ false);
-        initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+        initializeFlipper();
     }
 
-    /**
-     * Loads Flipper in React Native templates. Call this in the onCreate method with something like
-     * initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
-     *
-     * @param context
-     * @param reactInstanceManager
-     */
-    private static void initializeFlipper(
-            Context context, ReactInstanceManager reactInstanceManager) {
+    private void initializeFlipper() {
         if (BuildConfig.DEBUG) {
             try {
         /*
@@ -49,7 +43,7 @@ public class MainApplication  extends Application implements ReactApplication {
                 Class<?> aClass = Class.forName("com.richie.ReactNativeFlipper");
                 aClass
                         .getMethod("initializeFlipper", Context.class, ReactInstanceManager.class)
-                        .invoke(null, context, reactInstanceManager);
+                        .invoke(null, this, getReactNativeHost().getReactInstanceManager());
             } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException |
                      InvocationTargetException e) {
                 e.printStackTrace();
