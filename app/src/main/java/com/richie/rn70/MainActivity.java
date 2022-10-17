@@ -14,6 +14,8 @@ import com.richie.rn70.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Collections;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
@@ -37,8 +39,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
-                Intent intent = new Intent(MainActivity.this, RnActivity.class);
-                MainActivity.this.startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, RnActivity.class);
+                RnActivity.cleanCaches(MainActivity.this);
+                RnActivity.buildRn(MainActivity.this, "http://localhost:8081"/*"http://localhost:8081"*//*"https://xxx.aliyuncs.com/ares/index.android.bundle"*/, Collections.singletonMap("test", 1), intent -> {
+                    MainActivity.this.runOnUiThread(() -> MainActivity.this.startActivity(intent));
+                });
             }
         });
     }
