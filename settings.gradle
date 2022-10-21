@@ -11,9 +11,12 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+//        maven {
+//            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+//            url("$rootDir/node_modules/react-native/android")
+//        }
         maven {
-            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-            url("$rootDir/node_modules/react-native/android")
+            url("$rootDir/app/rnlib")
         }
         google()
         mavenCentral()

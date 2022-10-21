@@ -67,8 +67,12 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
 //    implementation project(':ReactAndroid')
-    implementation(files("libs/react-native-0.70.3-release.aar"))
-    implementation(files("libs/hermes-engine-0.70.3-release.aar"))
+//    implementation(files("libs/react-native-0.70.3-release.aar"))
+//    implementation(files("libs/hermes-engine-0.70.3-release.aar"))
+    implementation("com.facebook.react:react-native:+")
+    implementation("com.facebook.react:hermes-engine:+") { // From node_modules
+        exclude group:'com.facebook.fbjni'
+    }
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
