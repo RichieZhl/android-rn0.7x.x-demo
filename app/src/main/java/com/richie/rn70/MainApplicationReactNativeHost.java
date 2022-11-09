@@ -1,7 +1,10 @@
 package com.richie.rn70;
 
-import com.facebook.react.ReactPackage;
+import com.facebook.react.*;
 import com.facebook.newarchitecture.BaseReactNativeHost;
+import com.horcrux.svg.SvgPackage;
+import com.swmansion.rnscreens.RNScreensPackage;
+import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 
 import java.util.List;
 
@@ -18,6 +21,9 @@ public class MainApplicationReactNativeHost extends BaseReactNativeHost {
   }
 
   protected void addReactPackage(final List<ReactPackage> packages) {
+    packages.add(new SafeAreaContextPackage());
+    packages.add(new RNScreensPackage());
+    packages.add(new SvgPackage());
     packages.add(new RnPackage());
   }
 

@@ -32,3 +32,6 @@ include(":ReactAndroid")
 project(":ReactAndroid").projectDir = file('node_modules/react-native/ReactAndroid')
 include(":ReactAndroid:hermes-engine")
 project(":ReactAndroid:hermes-engine").projectDir = file('node_modules/react-native/ReactAndroid/hermes-engine')
+include ':react-native-safe-area-context'
+include ':react-native-screens'
+include ':react-native-svg'
