@@ -30,6 +30,8 @@ public class MainApplication extends Application implements ReactApplication {
         // If you opted-in for the New Architecture, we enable the TurboModule system
         ReactFeatureFlags.useTurboModules = true;
         SoLoader.init(this, /* native exopackage */ false);
+        // TODO support metro split bundle
+        getReactNativeHost().getReactInstanceManager().createReactContextInBackground();
         initializeFlipper();
     }
 

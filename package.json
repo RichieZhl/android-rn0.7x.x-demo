@@ -9,7 +9,13 @@
     "release:android": "react-native bundle --platform android --entry-file index.js --bundle-output index.android.bundle --dev false && hermes-osx/hermesc -emit-binary -out index.android.bundle.hbc index.android.bundle && rm -f index.android.bundle && mv index.android.bundle.hbc index.android.bundle",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "common:android": "npx react-native bundle --platform android --config metro.common.config.js --dev false --entry-file common.js --bundle-output bundle/index.android.bundle",
+    "common:ios": "npx react-native bundle --platform ios --config metro.common.config.js --dev false --entry-file common.js --bundle-output bundle/index.ios.bundle",
+    "common:build": "mkdir -p bundle && yarn common:android && yarn common:ios",
+    "business:android": "npx react-native bundle --platform android --config metro.business.config.js --dev false --entry-file index.js --bundle-output bundle/business.android.bundle",
+    "business:ios": "npx react-native bundle --platform ios --config metro.business.config.js --dev false --entry-file index.js --bundle-output bundle/business.ios.bundle",
+    "business:build": "mkdir -p bundle && yarn business:android && yarn business:ios"
   },
   "dependencies": {
     "react": "18.1.0",
