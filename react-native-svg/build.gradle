@@ -26,6 +26,7 @@ android {
     defaultConfig {
         minSdk = 21
         targetSdk = 31
+        buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", "true"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -44,6 +45,21 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86", "x86_64", "arm64-v8a"
         }
+    }
+
+    packagingOptions {
+        // For some reason gradle only complains about the duplicated version of libreact_render libraries
+        // while there are more libraries copied in intermediates folder of the lib build directory, we exlude
+        // only the ones that make the build fail (ideally we should only include libsafeareacontext_modules but we
+        // are only allowed to specify exlude patterns)
+        exclude "**/libf*.so"
+        exclude "**/libfolly_*.so"
+        exclude "**/libglog.so"
+        exclude "**/libjsi.so"
+        exclude "**/libreact_*.so"
+        exclude "**/librrc_*.so"
+        exclude "**/libturbo*.so"
+        exclude "**/liby*.so"
     }
 
     buildTypes {

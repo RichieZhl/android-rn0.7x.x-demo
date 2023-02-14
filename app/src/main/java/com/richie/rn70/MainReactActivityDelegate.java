@@ -14,7 +14,10 @@ import com.facebook.infer.annotation.Assertions;
 import com.facebook.react.*;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.CatalystInstance;
+import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.react.modules.core.PermissionListener;
+
+import java.util.List;
 
 /**
  * Created by lylaut on 2022/11/11
@@ -49,7 +52,21 @@ public class MainReactActivityDelegate {
         this.mSplit = split;
 
         if (!mSplit && jsBundleFile != null && jsBundleFile.length() > 0) {
-            reactNativeHost = new MainApplicationReactNativeHost(jsBundleFile);
+            reactNativeHost = new DefaultReactNativeHost(activity.getApplication()) {
+                @Override
+                public boolean getUseDeveloperSupport() {
+                    return BuildConfig.DEBUG;
+                }
+
+                @Override
+                protected List<ReactPackage> getPackages() {
+                    List<ReactPackage> packages = new PackageList(this).getPackages();
+                    // Packages that cannot be autolinked yet can be added manually here, for example:
+                    // packages.add(new MyReactNativePackage());
+                    packages.add(new RnPackage());
+                    return packages;
+                }
+            };
         }
     }
 

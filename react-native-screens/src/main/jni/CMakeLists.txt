@@ -8,6 +8,8 @@ set(CMAKE_VERBOSE_MAKEFILE on)
 
 project(rnscreen_modules)
 
+add_definitions(-DANDROID=1)
+
 include(Android-prebuilt.cmake)
 
 file(GLOB react_codegen_SRCS CONFIGURE_DEPENDS *.cpp react/renderer/components/rnscreens/*.cpp)

@@ -35,3 +35,4 @@ project(":ReactAndroid:hermes-engine").projectDir = file('node_modules/react-nat
 include ':react-native-safe-area-context'
 include ':react-native-screens'
 include ':react-native-svg'
+include ':react-native-combine'

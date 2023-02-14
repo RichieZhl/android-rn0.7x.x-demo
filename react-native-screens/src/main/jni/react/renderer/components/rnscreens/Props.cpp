@@ -34,6 +34,11 @@ RNSScreenProps::RNSScreenProps(
     const RNSScreenProps &sourceProps,
     const RawProps &rawProps): ViewProps(context, sourceProps, rawProps),
 
+    sheetAllowedDetents(convertRawProp(context, rawProps, "sheetAllowedDetents", sourceProps.sheetAllowedDetents, {RNSScreenSheetAllowedDetents::Large})),
+    sheetLargestUndimmedDetent(convertRawProp(context, rawProps, "sheetLargestUndimmedDetent", sourceProps.sheetLargestUndimmedDetent, {RNSScreenSheetLargestUndimmedDetent::All})),
+    sheetGrabberVisible(convertRawProp(context, rawProps, "sheetGrabberVisible", sourceProps.sheetGrabberVisible, {false})),
+    sheetCornerRadius(convertRawProp(context, rawProps, "sheetCornerRadius", sourceProps.sheetCornerRadius, {-1.0})),
+    sheetExpandsWhenScrolledToEdge(convertRawProp(context, rawProps, "sheetExpandsWhenScrolledToEdge", sourceProps.sheetExpandsWhenScrolledToEdge, {false})),
     customAnimationOnSwipe(convertRawProp(context, rawProps, "customAnimationOnSwipe", sourceProps.customAnimationOnSwipe, {false})),
     fullScreenSwipeEnabled(convertRawProp(context, rawProps, "fullScreenSwipeEnabled", sourceProps.fullScreenSwipeEnabled, {false})),
     homeIndicatorHidden(convertRawProp(context, rawProps, "homeIndicatorHidden", sourceProps.homeIndicatorHidden, {false})),

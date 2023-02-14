@@ -4,34 +4,63 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.*;
 import com.facebook.react.config.ReactFeatureFlags;
+import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
+import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.soloader.SoLoader;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 /**
  * Created by lylaut on 2022/09/22
  */
 public class MainApplication extends Application implements ReactApplication {
 
-    private ReactNativeHost mNewArchitectureNativeHost;
+    private final ReactNativeHost mReactNativeHost =
+            new DefaultReactNativeHost(this) {
+                @Override
+                public boolean getUseDeveloperSupport() {
+                    return BuildConfig.DEBUG;
+                }
+
+                @Override
+                protected List<ReactPackage> getPackages() {
+                    @SuppressWarnings("UnnecessaryLocalVariable")
+                    List<ReactPackage> packages = new PackageList(this).getPackages();
+                    // Packages that cannot be autolinked yet can be added manually here, for example:
+                    packages.add(new RnPackage());
+                    return packages;
+                }
+
+                @Override
+                protected String getJSMainModuleName() {
+                    return "index";
+                }
+
+                @Override
+                protected boolean isNewArchEnabled() {
+                    return true;
+                }
+
+                @Override
+                protected Boolean isHermesEnabled() {
+                    return true;
+                }
+            };
 
     @Override
     public ReactNativeHost getReactNativeHost() {
-        if (mNewArchitectureNativeHost == null) {
-            mNewArchitectureNativeHost = new MainApplicationReactNativeHost(null);
-        }
-        return mNewArchitectureNativeHost;
+        return mReactNativeHost;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        MainApplicationReactNativeHost.setApplication(this);
         // If you opted-in for the New Architecture, we enable the TurboModule system
-        ReactFeatureFlags.useTurboModules = true;
         SoLoader.init(this, /* native exopackage */ false);
+        DefaultNewArchitectureEntryPoint.load();
         // TODO support metro split bundle
-        getReactNativeHost().getReactInstanceManager().createReactContextInBackground();
+//        getReactNativeHost().getReactInstanceManager().createReactContextInBackground();
         initializeFlipper();
     }
 

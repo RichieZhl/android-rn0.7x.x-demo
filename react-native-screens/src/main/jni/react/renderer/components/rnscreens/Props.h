@@ -38,6 +38,40 @@ class JSI_EXPORT RNSScreenContainerProps final : public ViewProps {
   
 };
 
+enum class RNSScreenSheetAllowedDetents { Large, Medium, All };
+
+static inline void fromRawValue(const PropsParserContext& context, const RawValue &value, RNSScreenSheetAllowedDetents &result) {
+  auto string = (std::string)value;
+  if (string == "large") { result = RNSScreenSheetAllowedDetents::Large; return; }
+  if (string == "medium") { result = RNSScreenSheetAllowedDetents::Medium; return; }
+  if (string == "all") { result = RNSScreenSheetAllowedDetents::All; return; }
+  abort();
+}
+
+static inline std::string toString(const RNSScreenSheetAllowedDetents &value) {
+  switch (value) {
+    case RNSScreenSheetAllowedDetents::Large: return "large";
+    case RNSScreenSheetAllowedDetents::Medium: return "medium";
+    case RNSScreenSheetAllowedDetents::All: return "all";
+  }
+}
+enum class RNSScreenSheetLargestUndimmedDetent { Large, Medium, All };
+
+static inline void fromRawValue(const PropsParserContext& context, const RawValue &value, RNSScreenSheetLargestUndimmedDetent &result) {
+  auto string = (std::string)value;
+  if (string == "large") { result = RNSScreenSheetLargestUndimmedDetent::Large; return; }
+  if (string == "medium") { result = RNSScreenSheetLargestUndimmedDetent::Medium; return; }
+  if (string == "all") { result = RNSScreenSheetLargestUndimmedDetent::All; return; }
+  abort();
+}
+
+static inline std::string toString(const RNSScreenSheetLargestUndimmedDetent &value) {
+  switch (value) {
+    case RNSScreenSheetLargestUndimmedDetent::Large: return "large";
+    case RNSScreenSheetLargestUndimmedDetent::Medium: return "medium";
+    case RNSScreenSheetLargestUndimmedDetent::All: return "all";
+  }
+}
 enum class RNSScreenStackPresentation { Push, Modal, TransparentModal, FullScreenModal, FormSheet, ContainedModal, ContainedTransparentModal };
 
 static inline void fromRawValue(const PropsParserContext& context, const RawValue &value, RNSScreenStackPresentation &result) {
@@ -160,6 +194,11 @@ class JSI_EXPORT RNSScreenProps final : public ViewProps {
 
 #pragma mark - Props
 
+  RNSScreenSheetAllowedDetents sheetAllowedDetents{RNSScreenSheetAllowedDetents::Large};
+  RNSScreenSheetLargestUndimmedDetent sheetLargestUndimmedDetent{RNSScreenSheetLargestUndimmedDetent::All};
+  bool sheetGrabberVisible{false};
+  Float sheetCornerRadius{-1.0};
+  bool sheetExpandsWhenScrolledToEdge{false};
   bool customAnimationOnSwipe{false};
   bool fullScreenSwipeEnabled{false};
   bool homeIndicatorHidden{false};

@@ -16,6 +16,54 @@
 namespace facebook {
 namespace react {
 
+RNSVGSvgViewAndroidProps::RNSVGSvgViewAndroidProps(
+    const PropsParserContext &context,
+    const RNSVGSvgViewAndroidProps &sourceProps,
+    const RawProps &rawProps): ViewProps(context, sourceProps, rawProps),
+
+    bbWidth(convertRawProp(context, rawProps, "bbWidth", sourceProps.bbWidth, {})),
+    bbHeight(convertRawProp(context, rawProps, "bbHeight", sourceProps.bbHeight, {})),
+    minX(convertRawProp(context, rawProps, "minX", sourceProps.minX, {0.0})),
+    minY(convertRawProp(context, rawProps, "minY", sourceProps.minY, {0.0})),
+    vbWidth(convertRawProp(context, rawProps, "vbWidth", sourceProps.vbWidth, {0.0})),
+    vbHeight(convertRawProp(context, rawProps, "vbHeight", sourceProps.vbHeight, {0.0})),
+    align(convertRawProp(context, rawProps, "align", sourceProps.align, {})),
+    meetOrSlice(convertRawProp(context, rawProps, "meetOrSlice", sourceProps.meetOrSlice, {0})),
+    tintColor(convertRawProp(context, rawProps, "tintColor", sourceProps.tintColor, {})),
+    color(convertRawProp(context, rawProps, "color", sourceProps.color, {})),
+    pointerEvents(convertRawProp(context, rawProps, "pointerEvents", sourceProps.pointerEvents, {})),
+    hasTVPreferredFocus(convertRawProp(context, rawProps, "hasTVPreferredFocus", sourceProps.hasTVPreferredFocus, {false})),
+    borderTopEndRadius(convertRawProp(context, rawProps, "borderTopEndRadius", sourceProps.borderTopEndRadius, {0.0})),
+    borderBottomStartRadius(convertRawProp(context, rawProps, "borderBottomStartRadius", sourceProps.borderBottomStartRadius, {0.0})),
+    borderBottomColor(convertRawProp(context, rawProps, "borderBottomColor", sourceProps.borderBottomColor, {})),
+    nextFocusDown(convertRawProp(context, rawProps, "nextFocusDown", sourceProps.nextFocusDown, {0})),
+    borderRightColor(convertRawProp(context, rawProps, "borderRightColor", sourceProps.borderRightColor, {})),
+    nextFocusRight(convertRawProp(context, rawProps, "nextFocusRight", sourceProps.nextFocusRight, {0})),
+    borderLeftColor(convertRawProp(context, rawProps, "borderLeftColor", sourceProps.borderLeftColor, {})),
+    borderColor(convertRawProp(context, rawProps, "borderColor", sourceProps.borderColor, {})),
+    removeClippedSubviews(convertRawProp(context, rawProps, "removeClippedSubviews", sourceProps.removeClippedSubviews, {false})),
+    nextFocusForward(convertRawProp(context, rawProps, "nextFocusForward", sourceProps.nextFocusForward, {0})),
+    nextFocusUp(convertRawProp(context, rawProps, "nextFocusUp", sourceProps.nextFocusUp, {0})),
+    accessible(convertRawProp(context, rawProps, "accessible", sourceProps.accessible, {false})),
+    borderStartColor(convertRawProp(context, rawProps, "borderStartColor", sourceProps.borderStartColor, {})),
+    borderBottomEndRadius(convertRawProp(context, rawProps, "borderBottomEndRadius", sourceProps.borderBottomEndRadius, {0.0})),
+    borderEndColor(convertRawProp(context, rawProps, "borderEndColor", sourceProps.borderEndColor, {})),
+    focusable(convertRawProp(context, rawProps, "focusable", sourceProps.focusable, {false})),
+    nativeBackgroundAndroid(convertRawProp(context, rawProps, "nativeBackgroundAndroid", sourceProps.nativeBackgroundAndroid, {})),
+    borderTopStartRadius(convertRawProp(context, rawProps, "borderTopStartRadius", sourceProps.borderTopStartRadius, {0.0})),
+    nativeForegroundAndroid(convertRawProp(context, rawProps, "nativeForegroundAndroid", sourceProps.nativeForegroundAndroid, {})),
+    backfaceVisibility(convertRawProp(context, rawProps, "backfaceVisibility", sourceProps.backfaceVisibility, {})),
+    borderStyle(convertRawProp(context, rawProps, "borderStyle", sourceProps.borderStyle, {})),
+    needsOffscreenAlphaCompositing(convertRawProp(context, rawProps, "needsOffscreenAlphaCompositing", sourceProps.needsOffscreenAlphaCompositing, {false})),
+    hitSlop(convertRawProp(context, rawProps, "hitSlop", sourceProps.hitSlop, {})),
+    borderTopColor(convertRawProp(context, rawProps, "borderTopColor", sourceProps.borderTopColor, {})),
+    nextFocusLeft(convertRawProp(context, rawProps, "nextFocusLeft", sourceProps.nextFocusLeft, {0})),
+    borderTopRightRadius(convertRawProp(context, rawProps, "borderTopRightRadius", sourceProps.borderTopRightRadius, {0.0})),
+    borderBottomRightRadius(convertRawProp(context, rawProps, "borderBottomRightRadius", sourceProps.borderBottomRightRadius, {0.0})),
+    borderRadius(convertRawProp(context, rawProps, "borderRadius", sourceProps.borderRadius, {0.0})),
+    borderBottomLeftRadius(convertRawProp(context, rawProps, "borderBottomLeftRadius", sourceProps.borderBottomLeftRadius, {0.0})),
+    borderTopLeftRadius(convertRawProp(context, rawProps, "borderTopLeftRadius", sourceProps.borderTopLeftRadius, {0.0}))
+      {}
 RNSVGCircleProps::RNSVGCircleProps(
     const PropsParserContext &context,
     const RNSVGCircleProps &sourceProps,
@@ -247,6 +295,23 @@ RNSVGImageProps::RNSVGImageProps(
     align(convertRawProp(context, rawProps, "align", sourceProps.align, {})),
     meetOrSlice(convertRawProp(context, rawProps, "meetOrSlice", sourceProps.meetOrSlice, {0}))
       {}
+RNSVGSvgViewProps::RNSVGSvgViewProps(
+    const PropsParserContext &context,
+    const RNSVGSvgViewProps &sourceProps,
+    const RawProps &rawProps): ViewProps(context, sourceProps, rawProps),
+
+    bbWidth(convertRawProp(context, rawProps, "bbWidth", sourceProps.bbWidth, {})),
+    bbHeight(convertRawProp(context, rawProps, "bbHeight", sourceProps.bbHeight, {})),
+    minX(convertRawProp(context, rawProps, "minX", sourceProps.minX, {0.0})),
+    minY(convertRawProp(context, rawProps, "minY", sourceProps.minY, {0.0})),
+    vbWidth(convertRawProp(context, rawProps, "vbWidth", sourceProps.vbWidth, {0.0})),
+    vbHeight(convertRawProp(context, rawProps, "vbHeight", sourceProps.vbHeight, {0.0})),
+    align(convertRawProp(context, rawProps, "align", sourceProps.align, {})),
+    meetOrSlice(convertRawProp(context, rawProps, "meetOrSlice", sourceProps.meetOrSlice, {0})),
+    tintColor(convertRawProp(context, rawProps, "tintColor", sourceProps.tintColor, {})),
+    color(convertRawProp(context, rawProps, "color", sourceProps.color, {})),
+    pointerEvents(convertRawProp(context, rawProps, "pointerEvents", sourceProps.pointerEvents, {}))
+      {}
 RNSVGLinearGradientProps::RNSVGLinearGradientProps(
     const PropsParserContext &context,
     const RNSVGLinearGradientProps &sourceProps,
@@ -391,8 +456,7 @@ RNSVGMaskProps::RNSVGMaskProps(
     height(convertRawProp(context, rawProps, "height", sourceProps.height, {})),
     width(convertRawProp(context, rawProps, "width", sourceProps.width, {})),
     maskUnits(convertRawProp(context, rawProps, "maskUnits", sourceProps.maskUnits, {0})),
-    maskContentUnits(convertRawProp(context, rawProps, "maskContentUnits", sourceProps.maskContentUnits, {0})),
-    maskTransform(convertRawProp(context, rawProps, "maskTransform", sourceProps.maskTransform, {}))
+    maskContentUnits(convertRawProp(context, rawProps, "maskContentUnits", sourceProps.maskContentUnits, {0}))
       {}
 RNSVGPathProps::RNSVGPathProps(
     const PropsParserContext &context,
@@ -536,23 +600,6 @@ RNSVGRectProps::RNSVGRectProps(
     width(convertRawProp(context, rawProps, "width", sourceProps.width, {})),
     rx(convertRawProp(context, rawProps, "rx", sourceProps.rx, {})),
     ry(convertRawProp(context, rawProps, "ry", sourceProps.ry, {}))
-      {}
-RNSVGSvgViewProps::RNSVGSvgViewProps(
-    const PropsParserContext &context,
-    const RNSVGSvgViewProps &sourceProps,
-    const RawProps &rawProps): ViewProps(context, sourceProps, rawProps),
-
-    bbWidth(convertRawProp(context, rawProps, "bbWidth", sourceProps.bbWidth, {})),
-    bbHeight(convertRawProp(context, rawProps, "bbHeight", sourceProps.bbHeight, {})),
-    minX(convertRawProp(context, rawProps, "minX", sourceProps.minX, {0.0})),
-    minY(convertRawProp(context, rawProps, "minY", sourceProps.minY, {0.0})),
-    vbWidth(convertRawProp(context, rawProps, "vbWidth", sourceProps.vbWidth, {0.0})),
-    vbHeight(convertRawProp(context, rawProps, "vbHeight", sourceProps.vbHeight, {0.0})),
-    align(convertRawProp(context, rawProps, "align", sourceProps.align, {})),
-    meetOrSlice(convertRawProp(context, rawProps, "meetOrSlice", sourceProps.meetOrSlice, {0})),
-    tintColor(convertRawProp(context, rawProps, "tintColor", sourceProps.tintColor, {})),
-    color(convertRawProp(context, rawProps, "color", sourceProps.color, {})),
-    pointerEvents(convertRawProp(context, rawProps, "pointerEvents", sourceProps.pointerEvents, {}))
       {}
 RNSVGSymbolProps::RNSVGSymbolProps(
     const PropsParserContext &context,

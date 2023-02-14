@@ -16,13 +16,14 @@
 namespace facebook {
 namespace react {
 
+using RNSVGSvgViewAndroidComponentDescriptor = ConcreteComponentDescriptor<RNSVGSvgViewAndroidShadowNode>;
 using RNSVGCircleComponentDescriptor = ConcreteComponentDescriptor<RNSVGCircleShadowNode>;
 using RNSVGClipPathComponentDescriptor = ConcreteComponentDescriptor<RNSVGClipPathShadowNode>;
 using RNSVGDefsComponentDescriptor = ConcreteComponentDescriptor<RNSVGDefsShadowNode>;
 using RNSVGEllipseComponentDescriptor = ConcreteComponentDescriptor<RNSVGEllipseShadowNode>;
 using RNSVGForeignObjectComponentDescriptor = ConcreteComponentDescriptor<RNSVGForeignObjectShadowNode>;
 using RNSVGGroupComponentDescriptor = ConcreteComponentDescriptor<RNSVGGroupShadowNode>;
-using RNSVGImageComponentDescriptor = ConcreteComponentDescriptor<RNSVGImageShadowNode>;
+using RNSVGSvgViewComponentDescriptor = ConcreteComponentDescriptor<RNSVGSvgViewShadowNode>;
 using RNSVGLinearGradientComponentDescriptor = ConcreteComponentDescriptor<RNSVGLinearGradientShadowNode>;
 using RNSVGLineComponentDescriptor = ConcreteComponentDescriptor<RNSVGLineShadowNode>;
 using RNSVGMarkerComponentDescriptor = ConcreteComponentDescriptor<RNSVGMarkerShadowNode>;
@@ -31,7 +32,6 @@ using RNSVGPathComponentDescriptor = ConcreteComponentDescriptor<RNSVGPathShadow
 using RNSVGPatternComponentDescriptor = ConcreteComponentDescriptor<RNSVGPatternShadowNode>;
 using RNSVGRadialGradientComponentDescriptor = ConcreteComponentDescriptor<RNSVGRadialGradientShadowNode>;
 using RNSVGRectComponentDescriptor = ConcreteComponentDescriptor<RNSVGRectShadowNode>;
-using RNSVGSvgViewComponentDescriptor = ConcreteComponentDescriptor<RNSVGSvgViewShadowNode>;
 using RNSVGSymbolComponentDescriptor = ConcreteComponentDescriptor<RNSVGSymbolShadowNode>;
 using RNSVGTextComponentDescriptor = ConcreteComponentDescriptor<RNSVGTextShadowNode>;
 using RNSVGTextPathComponentDescriptor = ConcreteComponentDescriptor<RNSVGTextPathShadowNode>;

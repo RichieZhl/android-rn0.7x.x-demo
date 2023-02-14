@@ -27,6 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RnActivity" android:theme="@style/Theme.RN70.NoActionBar"></activity>
+        <activity android:name=".RnMetroSplitActivity" android:theme="@style/Theme.RN70.NoActionBar"></activity>
     </application>
 
 </manifest>

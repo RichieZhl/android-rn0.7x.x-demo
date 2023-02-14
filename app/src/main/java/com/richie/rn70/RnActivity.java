@@ -4,10 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
-import com.facebook.react.ReactActivity;
-import com.facebook.react.ReactActivityDelegate;
-import com.facebook.react.ReactNativeHost;
-import com.facebook.react.ReactRootView;
+import com.facebook.react.*;
+import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
+import com.facebook.react.defaults.DefaultReactActivityDelegate;
 
 import java.io.File;
 import java.io.IOException;
@@ -191,7 +190,7 @@ public class RnActivity extends ReactActivity {
         String url = getIntent().getStringExtra("url");
         mData = mHashMap.remove(url);
         assert mData != null;
-        delegate.setJsBundleFile(mData.mJSBundleFile);
+//        delegate.setJsBundleFile(mData.mJSBundleFile);
         super.onCreate(savedInstanceState);
     }
 
@@ -201,7 +200,7 @@ public class RnActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "AwesomeProject";
+        return "SampleApp1";
     }
 
     /**
@@ -234,8 +233,6 @@ public class RnActivity extends ReactActivity {
 
     public static class MainActivityDelegate extends ReactActivityDelegate {
 
-        private ReactNativeHost reactNativeHost;
-
         private final HandleParams handleParams;
 
         public MainActivityDelegate(ReactActivity activity, String mainComponentName, HandleParams handleParams) {
@@ -246,23 +243,11 @@ public class RnActivity extends ReactActivity {
         public MainActivityDelegate(ReactActivity activity, String mainComponentName, String jsBundleFile, HandleParams handleParams) {
             super(activity, mainComponentName);
             this.handleParams = handleParams;
-            if (jsBundleFile != null && jsBundleFile.length() > 0) {
-                this.reactNativeHost = new MainApplicationReactNativeHost(jsBundleFile);
-            }
-        }
-
-        public void setJsBundleFile(String jsBundleFile) {
-            if (jsBundleFile != null && jsBundleFile.length() > 0) {
-                this.reactNativeHost = new MainApplicationReactNativeHost(jsBundleFile);
-            }
         }
 
         @Override
         public ReactNativeHost getReactNativeHost() {
-            if (reactNativeHost != null) {
-                return reactNativeHost;
-            }
-            return MainApplicationReactNativeHost.getApplicationReactNativeHost();
+            return ((ReactApplication)getPlainActivity().getApplication()).getReactNativeHost();
         }
 
         @Nullable

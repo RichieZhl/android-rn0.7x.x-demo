@@ -111,7 +111,7 @@ set_target_properties(turbomodulejsijni
         ${REACT_NDK_EXPORT_DIR}/${ANDROID_ABI}/libturbomodulejsijni.so)
 target_include_directories(turbomodulejsijni
         INTERFACE
-        ${REACT_ANDROID_SRC_DIR}/java/com/facebook/react/turbomodule/core/jni)
+        ${REACT_ANDROID_DIR}/build/prefab-headers/turbomodulejsijni)
 
 ## react_render_core
 add_library(react_render_core SHARED IMPORTED GLOBAL)
@@ -228,4 +228,11 @@ set_target_properties(runtimeexecutor
 target_include_directories(runtimeexecutor INTERFACE ${REACT_COMMON_DIR}/runtimeexecutor)
 
 ## fbjni
-add_subdirectory(${FIRST_PARTY_NDK_DIR}/fbjni fbjni_build)
+add_library(fbjni SHARED IMPORTED GLOBAL)
+set_target_properties(fbjni
+        PROPERTIES
+        IMPORTED_LOCATION
+        ${REACT_NDK_EXPORT_DIR}/${ANDROID_ABI}/libfbjni.so)
+target_include_directories(fbjni
+        INTERFACE
+        ${FIRST_PARTY_NDK_DIR}/fbjni/include)

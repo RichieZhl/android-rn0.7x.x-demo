@@ -8,6 +8,8 @@ set(CMAKE_VERBOSE_MAKEFILE on)
 
 project(rnsvg_modules)
 
+add_definitions(-DANDROID=1)
+
 include(Android-prebuilt.cmake)
 
 file(GLOB react_codegen_SRCS CONFIGURE_DEPENDS *.cpp react/renderer/components/rnsvg/*.cpp)
@@ -31,6 +33,8 @@ target_link_libraries(
   react_nativemodule_core
   react_render_core
   react_render_debug
+  react_render_imagemanager
+  react_render_mapbuffer
   react_render_graphics
   rrc_view
   turbomodulejsijni

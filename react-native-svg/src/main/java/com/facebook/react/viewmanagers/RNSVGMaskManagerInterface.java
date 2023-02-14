@@ -49,5 +49,4 @@ public interface RNSVGMaskManagerInterface<T extends View> {
   void setWidth(T view, @Nullable String value);
   void setMaskUnits(T view, int value);
   void setMaskContentUnits(T view, int value);
-  void setMaskTransform(T view, @Nullable ReadableArray value);
 }

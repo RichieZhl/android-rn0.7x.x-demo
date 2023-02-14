@@ -1,7 +1,6 @@
 package com.swmansion.rnscreens
 
 import android.content.Context
-import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Build
 import android.text.TextUtils
@@ -385,15 +384,15 @@ class ScreenStackHeaderConfig(context: Context) : ViewGroup(context) {
 
     init {
         visibility = GONE
-        toolbar = if (BuildConfig.DEBUG) DebugMenuToolbar(context, this) else CustomToolbar(context, this)
+        toolbar = CustomToolbar(context, this)
         mDefaultStartInset = toolbar.contentInsetStart
         mDefaultStartInsetWithNavigation = toolbar.contentInsetStartWithNavigation
 
         // set primary color as background by default
-//        val tv = TypedValue()
-//        if (context.theme.resolveAttribute(R.attr.colorPrimary, tv, true)) {
-            toolbar.setBackgroundColor(Color.WHITE)
-//        }
+        val tv = TypedValue()
+        if (context.theme.resolveAttribute(androidx.core.R.color.androidx_core_ripple_material_light, tv, true)) {
+            toolbar.setBackgroundColor(tv.data)
+        }
         toolbar.clipChildren = false
     }
 }

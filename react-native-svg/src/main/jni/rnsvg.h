@@ -17,6 +17,21 @@
 namespace facebook {
 namespace react {
 
+/**
+ * JNI C++ class for module 'NativeSvgRenderableModule'
+ */
+class JSI_EXPORT NativeSvgRenderableModuleSpecJSI : public JavaTurboModule {
+public:
+  NativeSvgRenderableModuleSpecJSI(const JavaTurboModule::InitParams &params);
+};
+
+/**
+ * JNI C++ class for module 'NativeSvgViewModule'
+ */
+class JSI_EXPORT NativeSvgViewModuleSpecJSI : public JavaTurboModule {
+public:
+  NativeSvgViewModuleSpecJSI(const JavaTurboModule::InitParams &params);
+};
 
 
 JSI_EXPORT

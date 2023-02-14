@@ -20,6 +20,152 @@
 namespace facebook {
 namespace react {
 
+struct RNSVGSvgViewAndroidNativeBackgroundAndroidStruct {
+  std::string type;
+  Float color;
+  bool borderless;
+  Float rippleRadius;
+};
+
+static inline void fromRawValue(const PropsParserContext& context, const RawValue &value, RNSVGSvgViewAndroidNativeBackgroundAndroidStruct &result) {
+  auto map = (butter::map<std::string, RawValue>)value;
+
+  auto tmp_type = map.find("type");
+  if (tmp_type != map.end()) {
+    fromRawValue(context, tmp_type->second, result.type);
+  }
+  auto tmp_color = map.find("color");
+  if (tmp_color != map.end()) {
+    fromRawValue(context, tmp_color->second, result.color);
+  }
+  auto tmp_borderless = map.find("borderless");
+  if (tmp_borderless != map.end()) {
+    fromRawValue(context, tmp_borderless->second, result.borderless);
+  }
+  auto tmp_rippleRadius = map.find("rippleRadius");
+  if (tmp_rippleRadius != map.end()) {
+    fromRawValue(context, tmp_rippleRadius->second, result.rippleRadius);
+  }
+}
+
+static inline std::string toString(const RNSVGSvgViewAndroidNativeBackgroundAndroidStruct &value) {
+  return "[Object RNSVGSvgViewAndroidNativeBackgroundAndroidStruct]";
+}
+
+struct RNSVGSvgViewAndroidNativeForegroundAndroidStruct {
+  std::string type;
+  Float color;
+  bool borderless;
+  Float rippleRadius;
+};
+
+static inline void fromRawValue(const PropsParserContext& context, const RawValue &value, RNSVGSvgViewAndroidNativeForegroundAndroidStruct &result) {
+  auto map = (butter::map<std::string, RawValue>)value;
+
+  auto tmp_type = map.find("type");
+  if (tmp_type != map.end()) {
+    fromRawValue(context, tmp_type->second, result.type);
+  }
+  auto tmp_color = map.find("color");
+  if (tmp_color != map.end()) {
+    fromRawValue(context, tmp_color->second, result.color);
+  }
+  auto tmp_borderless = map.find("borderless");
+  if (tmp_borderless != map.end()) {
+    fromRawValue(context, tmp_borderless->second, result.borderless);
+  }
+  auto tmp_rippleRadius = map.find("rippleRadius");
+  if (tmp_rippleRadius != map.end()) {
+    fromRawValue(context, tmp_rippleRadius->second, result.rippleRadius);
+  }
+}
+
+static inline std::string toString(const RNSVGSvgViewAndroidNativeForegroundAndroidStruct &value) {
+  return "[Object RNSVGSvgViewAndroidNativeForegroundAndroidStruct]";
+}
+
+struct RNSVGSvgViewAndroidHitSlopStruct {
+  Float left;
+  Float top;
+  Float right;
+  Float bottom;
+};
+
+static inline void fromRawValue(const PropsParserContext& context, const RawValue &value, RNSVGSvgViewAndroidHitSlopStruct &result) {
+  auto map = (butter::map<std::string, RawValue>)value;
+
+  auto tmp_left = map.find("left");
+  if (tmp_left != map.end()) {
+    fromRawValue(context, tmp_left->second, result.left);
+  }
+  auto tmp_top = map.find("top");
+  if (tmp_top != map.end()) {
+    fromRawValue(context, tmp_top->second, result.top);
+  }
+  auto tmp_right = map.find("right");
+  if (tmp_right != map.end()) {
+    fromRawValue(context, tmp_right->second, result.right);
+  }
+  auto tmp_bottom = map.find("bottom");
+  if (tmp_bottom != map.end()) {
+    fromRawValue(context, tmp_bottom->second, result.bottom);
+  }
+}
+
+static inline std::string toString(const RNSVGSvgViewAndroidHitSlopStruct &value) {
+  return "[Object RNSVGSvgViewAndroidHitSlopStruct]";
+}
+class JSI_EXPORT RNSVGSvgViewAndroidProps final : public ViewProps {
+ public:
+  RNSVGSvgViewAndroidProps() = default;
+  RNSVGSvgViewAndroidProps(const PropsParserContext& context, const RNSVGSvgViewAndroidProps &sourceProps, const RawProps &rawProps);
+
+#pragma mark - Props
+
+  std::string bbWidth{};
+  std::string bbHeight{};
+  Float minX{0.0};
+  Float minY{0.0};
+  Float vbWidth{0.0};
+  Float vbHeight{0.0};
+  std::string align{};
+  int meetOrSlice{0};
+  SharedColor tintColor{};
+  SharedColor color{};
+  std::string pointerEvents{};
+  bool hasTVPreferredFocus{false};
+  Float borderTopEndRadius{0.0};
+  Float borderBottomStartRadius{0.0};
+  SharedColor borderBottomColor{};
+  int nextFocusDown{0};
+  SharedColor borderRightColor{};
+  int nextFocusRight{0};
+  SharedColor borderLeftColor{};
+  SharedColor borderColor{};
+  bool removeClippedSubviews{false};
+  int nextFocusForward{0};
+  int nextFocusUp{0};
+  bool accessible{false};
+  SharedColor borderStartColor{};
+  Float borderBottomEndRadius{0.0};
+  SharedColor borderEndColor{};
+  bool focusable{false};
+  RNSVGSvgViewAndroidNativeBackgroundAndroidStruct nativeBackgroundAndroid{};
+  Float borderTopStartRadius{0.0};
+  RNSVGSvgViewAndroidNativeForegroundAndroidStruct nativeForegroundAndroid{};
+  std::string backfaceVisibility{};
+  std::string borderStyle{};
+  bool needsOffscreenAlphaCompositing{false};
+  RNSVGSvgViewAndroidHitSlopStruct hitSlop{};
+  SharedColor borderTopColor{};
+  int nextFocusLeft{0};
+  double borderTopRightRadius{0.0};
+  double borderBottomRightRadius{0.0};
+  double borderRadius{0.0};
+  double borderBottomLeftRadius{0.0};
+  double borderTopLeftRadius{0.0};
+};
+
 struct RNSVGCircleFillStruct {
   int type;
   SharedColor payload;
@@ -836,6 +982,26 @@ class JSI_EXPORT RNSVGImageProps final : public ViewProps {
   int meetOrSlice{0};
 };
 
+class JSI_EXPORT RNSVGSvgViewProps final : public ViewProps {
+ public:
+  RNSVGSvgViewProps() = default;
+  RNSVGSvgViewProps(const PropsParserContext& context, const RNSVGSvgViewProps &sourceProps, const RawProps &rawProps);
+
+#pragma mark - Props
+
+  std::string bbWidth{};
+  std::string bbHeight{};
+  Float minX{0.0};
+  Float minY{0.0};
+  Float vbWidth{0.0};
+  Float vbHeight{0.0};
+  std::string align{};
+  int meetOrSlice{0};
+  SharedColor tintColor{};
+  SharedColor color{};
+  std::string pointerEvents{};
+};
+
 class JSI_EXPORT RNSVGLinearGradientProps final : public ViewProps {
  public:
   RNSVGLinearGradientProps() = default;
@@ -1315,7 +1481,6 @@ class JSI_EXPORT RNSVGMaskProps final : public ViewProps {
   std::string width{};
   int maskUnits{0};
   int maskContentUnits{0};
-  std::vector<Float> maskTransform{};
 };
 
 struct RNSVGPathFillStruct {
@@ -1712,26 +1877,6 @@ class JSI_EXPORT RNSVGRectProps final : public ViewProps {
   std::string width{};
   std::string rx{};
   std::string ry{};
-};
-
-class JSI_EXPORT RNSVGSvgViewProps final : public ViewProps {
- public:
-  RNSVGSvgViewProps() = default;
-  RNSVGSvgViewProps(const PropsParserContext& context, const RNSVGSvgViewProps &sourceProps, const RawProps &rawProps);
-
-#pragma mark - Props
-
-  std::string bbWidth{};
-  std::string bbHeight{};
-  Float minX{0.0};
-  Float minY{0.0};
-  Float vbWidth{0.0};
-  Float vbHeight{0.0};
-  std::string align{};
-  int meetOrSlice{0};
-  SharedColor tintColor{};
-  SharedColor color{};
-  std::string pointerEvents{};
 };
 
 struct RNSVGSymbolFillStruct {
